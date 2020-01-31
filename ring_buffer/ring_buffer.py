@@ -39,15 +39,24 @@ class RingBuffer:
 
         return list_buffer_contents
 
+
 # ----------------Stretch Goal-------------------
 
 
 class ArrayRingBuffer:
     def __init__(self, capacity):
-        pass
+        self.capacity = capacity
+        self.storage = [None] * capacity
+        self.current = 0
 
     def append(self, item):
-        pass
+        # Update the value in the "current" index
+        self.storage[self.current] = item
+        self.current += 1
+        # Reset the current index when you reach the end
+        if self.current == self.capacity:
+            self.current = 0
 
     def get(self):
-        pass
+        # Filter out None values
+        return [item for item in self.storage if item is not None]
