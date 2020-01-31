@@ -10,12 +10,14 @@ f = open('names_2.txt', 'r')
 names_2 = f.read().split("\n")  # List containing 10000 names
 f.close()
 
+
 duplicates = []
 for name in enumerate(names_1):
     if name[1] in names_2:
         duplicates.append(name[1])
 
-# run time from 6.175 sec to 1.362sec
+
+# run time from 6.175 sec to 1.286sec
 
 end_time = time.time()
 print(f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
